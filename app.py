@@ -5,7 +5,8 @@ import streamlit as st
 from collections import Counter
 import io
 
-client = anthropic.Anthropic()
+import os
+client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
 
 def analyze_ticket(ticket_text):
     response = client.messages.create(
